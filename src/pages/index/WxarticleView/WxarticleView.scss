@@ -1,0 +1,46 @@
+.wx_scrollView{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.wx_itemView{
+    display: inline-block;
+    margin: 30px;
+}
+
+.wx_itemContentView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wx_authorHead{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wx_authorHeadText{
+    color: #ffffff;
+    font-size: 35px;
+}
+
+.wx_authorName{
+    margin-top: 20px;
+    color: #333333;
+    font-size: 25px;
+}
+
+//隐藏scrollview滚动条
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}

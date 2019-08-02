@@ -1,0 +1,48 @@
+@import '../../../styles//mixins.scss';
+
+.tab_view{
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    background: #ffffff;
+}
+
+.tab_itemView{
+    display: inline-block;
+    padding: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tab_itemView_select{
+    display: inline-block;
+    padding: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 4px solid $primary-color;
+}
+
+.tab_itemtext{
+    color: #666666;
+    font-size: 30px;
+}
+
+.tab_itemtext_select{
+    color: $primary-color;
+    font-size: 30px;
+}
+
+.tab_itemline{
+    height: 1px;
+    width: 100%;
+    color: $primary-color;
+}
+
+//隐藏scrollview滚动条
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}

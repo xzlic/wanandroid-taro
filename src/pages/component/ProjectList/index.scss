@@ -1,0 +1,56 @@
+@import '../../../styles/mixins.scss';
+
+.index_listItem{
+    margin-top: 70px;
+}
+.contentView{
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #999999;
+    padding: 15px;
+}
+
+.contentViewFirst{
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.content_img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.project_img{
+    width: 200px;
+    height: 300px;
+}
+
+.project_content{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.project_title{
+    font-size: 35px;
+    @include lamp-clamp(1);
+}
+
+.project_desc{
+    font-size: 30px;
+    @include lamp-clamp(2);
+}
+
+.project_author_data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project_authortext{
+    font-size: 25px;
+}

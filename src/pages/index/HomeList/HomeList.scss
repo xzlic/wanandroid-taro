@@ -1,0 +1,54 @@
+.contentView{
+    border-top-width: 1px;
+    border-top-color: #999999;
+    border-top-style: solid;
+    padding: 20px;
+}
+
+.homelist_top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homelist_topchapter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.homelist_top_author{
+    font-size: 25px;
+}
+
+.homelist_top_niceDate{
+    font-size: 25px;
+}
+
+.homelist_title{
+    font-size: 35px;
+    margin-top: 5px;
+}
+
+.homelist_bottom{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.homelist_bottom_chapterNameView{
+    border: 1px solid #0000ff;
+    // border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.homelist_bottom_chapterNameText{
+    font-size: 20px;
+    color: #0000ff;
+}

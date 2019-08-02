@@ -1,0 +1,62 @@
+@import '../../styles//mixins.scss';
+
+/* weapp */
+page {
+    height: 100%;
+}
+
+  
+.mineContent{
+    background-color: #e0e0e0;
+    height: 100%;
+}
+
+.mineContent_top{
+    height: 500px;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mineContent_userinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mine_headimg{
+    width: 120px;
+    height: 120px;
+    border: 1px soild #ffffff;
+    border-radius: 60px;
+}
+
+.mine_nickName{
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.mine_menuview{
+    background-color: #ffffff;
+    margin-top: 50px;
+}
+
+.mine_menuitem{
+    padding: 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.mine_menuitem_text{
+    color: #333333;
+    font-size: 30px;
+}
+
+.mine_button{
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    font-size: 35px !important;
+}
