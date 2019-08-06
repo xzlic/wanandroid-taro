@@ -6,7 +6,6 @@ const token = ''
 export default {
     baseOptions(params, method = 'GET') {
         let { url, data } = params
-        console.log('params', params)
         let contentType = 'application/x-www-form-urlencoded'
         contentType = params.contentType || contentType
         return new Promise((resolve, reject) => { 

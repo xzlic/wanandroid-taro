@@ -23,6 +23,8 @@ export default class HomeList extends Component {
             //替换汉字符号
             title = title.replace(/&amp;/g, "、")
             title = title.replace(/&mdash;/g, "-")
+            title = title.replace(/&ldquo;/g, "“")
+            title = title.replace(/&rdquo;/g, "”")
             return (
               <View key={item.id} className='contentView' onClick={this.handleClick.bind(this, item.link)}>
                 <View className='homelist_top'>
@@ -45,12 +47,18 @@ export default class HomeList extends Component {
                 </View>
                 <Text className='homelist_title' decode='true'>{title}</Text>
                 <View className='homelist_bottom'>
-                  <View className='homelist_bottom_chapterNameView'>
-                    <Text className='homelist_bottom_chapterNameText'>{item.chapterName}</Text>
-                  </View>
-                  <View className='homelist_bottom_chapterNameView' style={{marginLeft: '5px'}}>
-                    <Text className='homelist_bottom_chapterNameText'>{item.superChapterName}</Text>
-                  </View>
+                  {
+                    item.chapterName && item.chapterName !== '' ?
+                    <View className='homelist_bottom_chapterNameView'>
+                      <Text className='homelist_bottom_chapterNameText'>{item.chapterName}</Text>
+                    </View> : null
+                  }
+                  {
+                    item.superChapterName && item.superChapterName !== '' ?
+                    <View className='homelist_bottom_chapterNameView' style={{marginLeft: '5px'}}>
+                      <Text className='homelist_bottom_chapterNameText'>{item.superChapterName}</Text>
+                    </View> : null
+                  }
                 </View>
               </View>
             )
