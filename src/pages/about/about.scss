@@ -1,0 +1,20 @@
+.about_view{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.about_text{
+    color: #333333;
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.appicon_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    align-self: center;
+}

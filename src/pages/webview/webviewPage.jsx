@@ -15,14 +15,6 @@ export default class webviewPage extends Component {
     this.url = decodeURIComponent(this.$router.params.url || '')
   }
 
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
   render () {
     console.log(this.url)
     return (

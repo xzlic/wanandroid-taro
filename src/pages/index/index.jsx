@@ -5,6 +5,8 @@ import api from '../../utils/api'
 import './index.scss'
 import HomeList from './HomeList/HomeList'
 import WxarticleView from './WxarticleView/WxarticleView'
+import searchIcon from '../../assets/search_icon.png';
+import shareIcon from '../../assets/share.png';
 
 export default class Index extends Component {
 
@@ -22,9 +24,11 @@ export default class Index extends Component {
       listData: [],
       wxArticleList: [],
       loading: false,
+      nomore: false,
     }
   }
 
+  //获取banner
   loadBannerData(){
     api.get('banner/json').then((response) => {
       this.setState({
@@ -47,6 +51,7 @@ export default class Index extends Component {
     })
   }
 
+  //获取微信公众号
   loadWXData(){
     api.get('wxarticle/chapters/json').then((response) => {
       this.setState({
@@ -55,18 +60,28 @@ export default class Index extends Component {
     })
   }
 
+  //首页文章列表
   loadList(){
     this.setState({loading: true})
     let url = `article/list/${this.page}/json`
     api.get(url).then((response) => {
-      this.setState( prevState => ({
-        loading: false,
-        listData: prevState.listData.concat(response.data.datas)
-      }))
+      if (response && response.data && response.data.datas){
+        this.setState( prevState => ({
+          listData: prevState.listData.concat(response.data.datas)
+        }))
+        if (response.data.datas.length === 0){
+          this.setState({nomore: true})
+        }else{
+          this.setState({nomore: false})
+        }
+      }
+      this.setState({loading: false})
       Taro.stopPullDownRefresh()
+      Taro.hideLoading()
     }).catch((error) => {
       this.setState({loading: false})
       Taro.stopPullDownRefresh()
+      Taro.hideLoading()
     })
   }
 
@@ -85,29 +100,37 @@ export default class Index extends Component {
     this.loadList()
   }
 
-  componentWillMount () { }
-
   componentDidMount () {
+    Taro.showLoading({
+      title: '加载中...'
+    })
     this.loadBannerData()
     this.loadWXData()
     this.loadTopList()
   }
 
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
   swiperItemClick = (url) => {
+    // Taro.navigateTo({
+    //   url: `/pages/webview/webviewPage?url=${url}`
+    // })
+    Taro.setClipboardData({data: url})
+  }
+
+  handleSearch = () => {
     Taro.navigateTo({
-      url: `/pages/webview/webviewPage?url=${url}`
+      url: '/pages/search/search'
     })
   }
 
   render () {
     return (
       <View className='index'>
+        <View className='top_search'>
+          <View className='top_searchinput' onClick={this.handleSearch.bind(this)}>
+            <Image className='top_searchIcon' src={searchIcon}/>
+            <Text className='top_searchinput_text'>请输入关键字</Text>
+          </View>
+        </View>
         <Swiper className='banner'
           autoplay
           circular
@@ -131,9 +154,15 @@ export default class Index extends Component {
             </View>
             : 
             <View className='home_loading'>
+              {
+                this.state.nomore &&
+                <Text className='home_loading_text'>加载完毕</Text>
+              }
             </View>
         }
-        
+        <Button className='share_button' open-type='share' >
+          <Image className='share_image' src={shareIcon}/>
+        </Button>
       </View>
     )
   }

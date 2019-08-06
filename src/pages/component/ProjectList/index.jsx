@@ -8,6 +8,10 @@ export default class ProjectList extends Component {
     list: []
   }
 
+  handleClick = (link) => {
+    Taro.setClipboardData({data: link})
+  }
+
   render () {
     const { list } = this.props;
     return (
@@ -15,7 +19,7 @@ export default class ProjectList extends Component {
         {
           list.map((item, index) => {
             return (
-              <View key={item.id} className={index === 0 ? 'contentViewFirst' : 'contentView'}>
+              <View key={item.id} className={index === 0 ? 'contentViewFirst' : 'contentView'} onClick={this.handleClick.bind(this, item.link)}>
                 <View className='content_img'>
                     <Image className='project_img' src={item.envelopePic}/>
                 </View>

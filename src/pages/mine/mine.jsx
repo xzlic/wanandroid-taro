@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Button } from '@tarojs/components'
 import './mine.scss'
+import arrowIcon from '../../assets/arrow.png';
 
 export default class mine extends Component {
 
@@ -14,18 +15,11 @@ export default class mine extends Component {
     }
   }
 
-  componentWillMount () { }
-
   componentDidMount () {
     this.getUserInfo()
   }
 
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
+  //获取用户信息
   getUserInfo(){
     Taro.getUserInfo().then((response) => {
       this.setState({
@@ -34,7 +28,14 @@ export default class mine extends Component {
       console.log(response.userInfo.avatarUrl)
     })
   }
-  
+
+  //关于
+  about = () =>{
+    Taro.navigateTo({
+      url: '/pages/about/about'
+    })
+  }
+
   render () {
     return (
       <View className='mineContent'>
@@ -50,8 +51,9 @@ export default class mine extends Component {
           }
         </View>
         <View className='mine_menuview'>
-          <View className='mine_menuitem'>
+          <View className='mine_menuitem' onClick={this.about.bind(this)}>
               <Text className='mine_menuitem_text'>关于</Text>
+              <Image className='arrow_img' src={arrowIcon}/>
           </View>
         </View>
       </View>

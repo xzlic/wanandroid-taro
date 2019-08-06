@@ -17,18 +17,23 @@ export default class architecture extends Component {
     }
 
   }
+
+  //获取体系数据
   loadTreeList() {
+    Taro.showLoading({
+      title: '加载中...'
+    })
     api.get('tree/json').then((response) => {
       this.setState({
         treeList: response.data
       })
-      // if (response && response.data && response.data.length > 0){
-      //   this.currentid = response.data[0].id
-      //   this.loadProjectList(this.currentid)
-      // }
+      Taro.hideLoading()
+    }).catch((error) => {
+      Taro.hideLoading()
     })
   }
 
+  //生成随机颜色
   getRandomColor(){
 			let color="#";
 			for(let i=0; i<6; i++){
@@ -37,17 +42,9 @@ export default class architecture extends Component {
 			return color;
   }
 
-  componentWillMount () { }
-
   componentDidMount () {
     this.loadTreeList()
   }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
 
   handleItemCheck = (index) =>{
     if (index !== this.state.currentIndex){

@@ -18,7 +18,9 @@ class App extends Component {
       'pages/architecture/architecture',
       'pages/mine/mine',
       'pages/webview/webviewPage',
-      'pages/acticleList/acticleList'
+      'pages/acticleList/acticleList',
+      'pages/search/search',
+      'pages/about/about'
     ],
     window: {
       backgroundTextStyle: 'dark',

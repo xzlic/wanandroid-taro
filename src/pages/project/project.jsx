@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import './project.scss'
 import Tab from '../component/tab/tab.jsx'
 import api from '../../utils/api'
@@ -30,7 +30,11 @@ export default class project extends Component {
     }
   }
 
+  //获取项目类型
   loadTreeList() {
+    Taro.showLoading({
+      title: '加载中...'
+    })
     api.get('project/tree/json').then((response) => {
       this.setState({
         treeList: response.data
@@ -39,18 +43,25 @@ export default class project extends Component {
         this.currentid = response.data[0].id
         this.loadProjectList(this.currentid)
       }
+    }).catch((error) => {
+      Taro.hideLoading()
     })
   }
 
+  //获取项目列表
   loadProjectList(cid) {
     api.get(`project/list/${this.page}/json?cid=${cid}`).then((response) => {
       console.log(response.data.datas)
       this.setState( prevState => ({
         dataList: this.page == 1 ? response.data.datas : prevState.dataList.concat(response.data.datas)
       }))
+      Taro.hideLoading()
+    }).catch((error) => {
+      Taro.hideLoading()
     })
   }
 
+  //切换tab
   changeTab = (index) => {
     this.setState({
       current: index
@@ -60,17 +71,9 @@ export default class project extends Component {
     this.loadProjectList(this.currentid)
   }
 
-  componentWillMount () { }
-
   componentDidMount () {
     this.loadTreeList()
   }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
 
   render () {
     return (

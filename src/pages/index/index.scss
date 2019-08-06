@@ -1,3 +1,4 @@
+@import '../../styles//mixins.scss';
 
 .banner{
     display: flex;
@@ -17,4 +18,62 @@
 .home_loading{
     position: relative;
     height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_loading_text{
+    font-size: 25px;
+    color: #666666;
+}
+
+.top_search{
+    display: flex;
+    flex-direction: row;
+    background-color: #e0e0e0;
+    align-items: center;
+}
+
+.top_searchinput{
+    flex: 1;
+    background-color: #ffffff;
+    height: 70px;
+    border-radius: 35px;
+    margin: 15px;
+    padding: 0px 30px 0px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.top_searchIcon{
+    width: 36px;
+    height: 34px;
+}
+
+.top_searchinput_text{
+    color: #333333;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.share_button{
+    background-color: $primary-color;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.share_image{
+    width: 40px;
+    height: 40px;
 }

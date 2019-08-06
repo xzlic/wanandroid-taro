@@ -1,19 +1,5 @@
 @import '../../styles/mixins.scss';
 
-.home_loading{
-    position: relative;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.home_loading_text{
-    font-size: 25px;
-    color: #666666;
-}
-
 .top_search{
     display: flex;
     flex-direction: row;
@@ -47,4 +33,39 @@
 .top_searchtext{
     color: #ffffff;
     font-size: 30px;
+}
+
+.hotkey_view{
+    display: flex;
+    flex-direction: column;
+}
+
+.hotkey_title{
+    color: #333333;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.hotkey_item_view{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.hotkey_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #dddddd;
+    margin: 15px;
+    padding: 0px 15px 0px 15px;
+    height: 70px;
+}
+
+.hotkey_text{
+    color: #666666;
+    font-size: 35px;
 }

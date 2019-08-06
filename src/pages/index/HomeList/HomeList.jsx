@@ -7,14 +7,24 @@ export default class HomeList extends Component {
     list: []
   }
 
+  handleClick = (link) => {
+    Taro.setClipboardData({data: link})
+  }
+
   render () {
     const { list } = this.props;
     return (
       <View className='index'>
         {
           list.map((item, index) => {
+            let title = item.title
+            //替换掉html标签
+            title = title.replace(/<[^>]+>/g, "")
+            //替换汉字符号
+            title = title.replace(/&amp;/g, "、")
+            title = title.replace(/&mdash;/g, "-")
             return (
-              <View key={item.id} className='contentView'>
+              <View key={item.id} className='contentView' onClick={this.handleClick.bind(this, item.link)}>
                 <View className='homelist_top'>
                   <View className='homelist_topchapter'>
                     {
@@ -33,7 +43,7 @@ export default class HomeList extends Component {
                   </View>
                   <Text className='homelist_top_niceDate'>{item.niceDate}</Text>
                 </View>
-                <Text className='homelist_title' decode='true'>{item.title}</Text>
+                <Text className='homelist_title' decode='true'>{title}</Text>
                 <View className='homelist_bottom'>
                   <View className='homelist_bottom_chapterNameView'>
                     <Text className='homelist_bottom_chapterNameText'>{item.chapterName}</Text>

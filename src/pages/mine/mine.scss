@@ -46,8 +46,12 @@ page {
 }
 
 .mine_menuitem{
-    padding: 15px;
+    padding: 20px;
     border-bottom: 1px solid #dddddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .mine_menuitem_text{
@@ -59,4 +63,9 @@ page {
     border-color: #ffffff !important;
     color: #ffffff !important;
     font-size: 35px !important;
+}
+
+.arrow_img{
+    height: 22px;
+    width: 14px;
 }
