@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
+import { View, Text, Image, Swiper, SwiperItem, Button } from '@tarojs/components'
 import { AtActivityIndicator } from 'taro-ui'
 import api from '../../utils/api'
 import './index.scss'
