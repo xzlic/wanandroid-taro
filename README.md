@@ -5,4 +5,4 @@
 * ### 由于个人小程序不支持webview的使用，故文章只能复制链接到浏览器打开
 
 * ### 小程序码：小程序已经上线了，可以扫码体验
-![小程序码](https://github.com/xzlic/wanandroid-taro/tree/master/image/app_qrcode.jpg)
+![小程序码](https://github.com/xzlic/wanandroid-taro/blob/master/image/app_qrcode.jpg)
